@@ -1,0 +1,10 @@
+# netlify.toml
+
+[build]
+  command = "echo 'No build command'"  # As it's a static HTML page, there's no need for a build command
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/donor.html"
+  status = 200

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>NSS - National Service Scheme</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+
+        * {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        @media (min-width: 300px) and (max-width: 400px) {
+            .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+                max-width: auto; /* Adjust as needed for your design */
+                padding-right: var(--bs-gutter-x, 0.75rem);
+                padding-left: var(--bs-gutter-x, 0.75rem);
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    </style>
+
+    <body>
+
+        <!-- Spinner Start -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGuZxvyBWPJqcWFMbDO9m-J1K9CZkn0DJjPQ&s" alt="Loading..." style="width: 5rem; height: 5rem;">
+</div>
+<!-- Spinner End -->
+
+
+        <!-- Topbar Start 
+        <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+            <div class="row gx-0 align-items-center" style="height: 45px;">
+                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="text-light me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                        <a href="#" class="text-light me-4"><i class="fas fa-phone-alt text-primary me-2"></i>+01234567890</a>
+                        <a href="#" class="text-light me-0"><i class="fas fa-envelope text-primary me-2"></i>Example@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-light btn-square border rounded-circle nav-fill me-0"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       topbar end -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
+                <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmKkFdJ9NbPI1XRedecNjYGhvMhZJDaPgPfw&s" alt="Logo">
+                  <h1 class="text-primary m-0">NSS KMIT <i class=""></i></h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link ">Home</a>
+                        <a href="about.html" class="nav-item nav-link ">About</a>
+                        <a href="service.html" class="nav-item nav-link active">Services</a>
+                        <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blood Community</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="donor.html" class="dropdown-item">Blood Donor</a>
+                                <a href="bloodneed.html" class="dropdown-item">Need of Blood</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                    </div>
+                    <a href="form.html" class="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0">Volunteer Application</a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h3 class="text-white display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Services</h1>
+                <ol class="breadcrumb justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item active text-primary">Services</li>
+                </ol>    
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- Services Start -->
+        <div class="container-fluid service py-5">
+            <div class="container py-5">
+                <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="sub-style">
+                        <h4 class="sub-title px-3 mb-0">What We Do</h4>
+                    </div>
+                    <h1 class="display-6 mb-4">Our Services:<br>Empowering Communities Through NSS KMIT</h1>
+                    <p class="mb-0">At NSS KMIT, we are dedicated to serving and uplifting our communities through a range of impactful initiatives. From educational programs and health camps to environmental conservation and social outreach, our team of volunteers works tirelessly to bring positive change and support to those in need. Join us in our mission to make a difference!<br><br></p>
+                    <div class="sub-style">
+                        <h4 class="sub-title px-3 mb-0">LIst of Events done by NSS KMIT</h4>
+                    </div>
+                </div>
+                <div class="row g-4 justify-content-center" id="eventCardsContainer">
+                    <!-- Event cards will be dynamically added here -->
+                </div>
+                
+            </div>
+        </div>
+        </div>
+
+        <!-- Import jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+
+<script type="module">
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBl9M2WAmSnJFhky66OL4Sn4YzEmrnwvvA",
+        authDomain: "nsskmitauth.firebaseapp.com",
+        projectId: "nsskmitauth",
+        storageBucket: "nsskmitauth.appspot.com",
+        messagingSenderId: "88019575925",
+        appId: "1:88019575925:web:c8b27ffed9bb03169b843c",
+        measurementId: "G-D5FM01D17G"
+      };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Function to display events based on page number
+    async function displayEvents(pageNumber) {
+        const eventContainer = document.getElementById('eventCardsContainer');
+        const eventsPerPage = 8; // Number of events per page
+
+        try {
+            // Fetch events data from Firestore ordered by rank
+            const snapshot = await db.collection('events').orderBy('rank').get();
+            const events = snapshot.docs.map(doc => doc.data());
+
+            // Calculate start and end index for events based on page number
+            const startIndex = (pageNumber - 1) * eventsPerPage;
+            const endIndex = startIndex + eventsPerPage;
+
+            // Slice events array to get events for the current page
+            const pageEvents = events.slice(startIndex, endIndex);
+
+            // Clear previous content in event container
+            eventContainer.innerHTML = '';
+
+            // Loop through each event data for the current page
+        pageEvents.forEach(event => {
+            const url = event.photoPath; // Directly use the URL stored in Firestore
+
+            // Create HTML structure for each event
+            const eventHTML = `
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded">
+                        <div class="service-img rounded-top">
+                            <img src="${url}" class="img-fluid rounded-top w-100" alt="${event.eventName}">
+                        </div>
+                        <div class="service-content rounded-bottom bg-light p-4">
+                            <div class="service-content-inner">
+                                <h5 class="mb-4">${event.eventName}</h5>
+                                <a href="${event.reportLink}" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Append each event HTML to the container
+            eventContainer.innerHTML += eventHTML;
+        });
+
+        } catch (error) {
+            console.error('Error fetching events:', error);
+        }
+    }
+
+    // Initial load of events for page 2
+    document.addEventListener('DOMContentLoaded', () => {
+        displayEvents(7); // Display events for page 2 initially
+    });
+
+</script>
+
+<div class="pagination">
+    <button onclick="navigateToPage(1)">1</button>
+    <button onclick="navigateToPage(2)">2</button>
+    <button onclick="navigateToPage(3)">3</button>
+    <button onclick="navigateToPage(4)">4</button>
+    <button onclick="navigateToPage(5)">5</button>
+    <button onclick="navigateToPage(6)">6</button>
+    <button onclick="navigateToPage(7)">7</button>
+    <button onclick="navigateToPage(8)">8</button>
+</div>
+<script>
+    function navigateToPage(pageNumber) {
+        let url;
+        switch(pageNumber) {
+            case 1:
+                url = "service.html";
+                break;
+            case 2:
+                url = "page2.html"; // replace with the actual link to page 2
+                break;
+            case 3:
+                url = "page3.html"; // replace with the actual link to page 3
+                break;
+            case 4:
+                url = "page4.html"; // replace with the actual link to page 3
+                break;
+            case 5:
+                url = "page5.html"; // replace with the actual link to page 3
+                break;
+            case 6:
+                url = "page6.html"; // replace with the actual link to page 3
+                break;
+            case 7:
+                url = "page7.html"; // replace with the actual link to page 3
+                break;
+            case 8:
+                url = "page8.html"; // replace with the actual link to page 3
+                break;
+            default:
+                url = "index.html"; // fallback in case of an invalid page number
+        }
+        window.location.href = url;
+    }
+</script>
+
+
+
+
+
+
+<!-- Footer Start -->
+<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+<div class="container py-5">
+<div class="row g-5">
+<div class="col-md-6 col-lg-6 col-xl-3">
+<div class="footer-item d-flex flex-column">
+    <h4 class="text-white mb-4"><i class="fas fa-star-of-life me-3"></i>NSS</h4>
+    <p>Be the change! Empowering youth through community service in India.<br> Follow us on</p>
+    <div class="d-flex align-items-center">
+        <i class="fas fa-share fa-2x text-white me-2"></i>
+        <!-- <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href="mailto:example@example.com"><i class="fas fa-envelope"></i></a> -->
+        <a class="btn-square btn btn-primary text-white rounded-circle mx-1" 
+        href="https://www.youtube.com/@NSSKMITofficial"target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+        <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href="https://www.instagram.com/nss.kmit"target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
+</div>
+<div class="col-md-6 col-lg-6 col-xl-3">
+<div class="footer-item d-flex flex-column">
+    <h4 class="mb-4 text-white">Quick Links</h4>
+    <a href="about.html"><i class="fas fa-angle-right me-2"></i> About Us</a>
+    <a href="contact.html"><i class="fas fa-angle-right me-2"></i> Contact Us</a>
+    <a href="privacy.html"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+    <a href="t&c.html"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
+    <a href="team.html"><i class="fas fa-angle-right me-2"></i> Our Team</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-6 col-xl-3">
+<div class="footer-item d-flex flex-column">
+    <h4 class="mb-4 text-white">Services</h4>
+    <a href="service.html"><i class="fas fa-angle-right me-2"></i> All Services</a>
+    <a href="gallery.html"><i class="fas fa-angle-right me-2"></i> Gallery</a>
+    <a href="donor.html"><i class="fas fa-angle-right me-2"></i> Blood Community :<br>Want to Donate?</a>
+    <a href="bloodneed.html"><i class="fas fa-angle-right me-2"></i> Blood Community :<br>Need Blood?</a>
+    
+</div>
+</div>
+<div class="col-md-6 col-lg-6 col-xl-3">
+<div class="footer-item d-flex flex-column">
+    <h4 class="mb-4 text-white">Contact Info</h4>
+    <a href="https://maps.app.goo.gl/a6gr74qLfqePvceD6"><i class="fa fa-map-marker-alt me-2"></i> Narayanaguda, Hyderabad, Telangana</a>
+    <a href="mailto:nsskmitofficial@gmail.com"><i class="fas fa-envelope me-2"></i><br>nsskmitofficial@gmail.com</a>
+    <a href="tel:+91 9182068791"><i class="fas fa-phone me-2"></i>(M Rishwanth Kumar)<br>+91 9182068791</a>
+    <a href="tel:+91 7894561230" class="mb-3"><i class="fas fa-phone me-2"></i>(P Sai Kiran)<br>+91 7894561230</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer End -->
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright py-4">
+<div class="container">
+<div class="row g-4 align-items-center">
+<div class="col-md-6 text-center text-md-start mb-md-0">
+<span class="text-white"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Nsskmit.in</a>, All right reserved.</span>
+</div>
+<div class="col-md-6 text-center text-md-end text-white">
+Designed By <a class="border-bottom">M Rishwanth Kumar</a> 
+</div>
+</div>
+</div>
+</div>
+<!-- Copyright End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

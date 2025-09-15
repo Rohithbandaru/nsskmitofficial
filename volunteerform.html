@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Form</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .form-container, .read-only-container {
+      width: 90%;
+      max-width: 600px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      position: relative;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    header .heading {
+      text-align: center;
+      flex-grow: 1;
+      min-width: 150px; /* Ensures the heading has some width */
+    }
+    
+    header .logo {
+      width: 80px; /* Default size */
+      height: 80px;
+    }
+    
+    header h3,
+    header h4,
+    header p {
+      margin: 0;
+      padding: 0;
+    }
+  
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: row; /* Keep logos and heading in a row */
+      }
+    
+      header .logo {
+        width: 60px; /* Smaller logo size for mobile */
+        height: 60px;
+      }
+    
+      header h3 {
+        font-size: 1.5rem; /* Adjust heading size for mobile */
+      }
+    
+      header h4 {
+        font-size: 1.2rem; /* Adjust subheading size for mobile */
+      }
+    
+      header p {
+        font-size: 1rem; /* Adjust text size for mobile */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header .logo {
+        width: 50px; /* Further reduce logo size for very small screens */
+        height: 50px;
+      }
+    
+      header h3 {
+        font-size: 1.2rem; /* Further reduce heading size */
+      }
+    
+      header h4 {
+        font-size: 1rem; /* Further reduce subheading size */
+      }
+    
+      header p {
+        font-size: 0.9rem; /* Further reduce text size */
+      }
+    }
+    
+    
+    .img-preview {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 2px solid #4caf50;
+    }
+    
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    
+    input[type="text"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="email"],
+    textarea,
+    select {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    input[type="file"] {
+      margin-top: 10px;
+    }
+    
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .read-only-container {
+      width: 90%; /* Responsive width */
+      max-width: 600px; /* Maximum width for larger screens */
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin: 20px auto; /* Centering the container */
+      position: relative;
+      text-align: left; /* Align text to the left */
+  }
+  
+  
+  .img-container {
+      text-align: center; /* Center the image */
+  }
+  
+  .img-preview {
+      width: 100px; /* Set a fixed width */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 8px;
+      border: 2px solid #4caf50; /* Border color */
+  }
+  
+  .options {
+      display: flex;
+      justify-content: space-between; /* Space buttons evenly */
+      margin-top: 20px;
+  }
+  
+  button {
+      background-color: #4caf50; /* Button color */
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+      flex: 1; /* Allow buttons to grow and share space equally */
+      margin: 0 5px; /* Add some space between buttons */
+  }
+  
+  button:hover {
+      background-color: #45a049; /* Darker shade on hover */
+  }
+  
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .read-only-container h2 {
+        font-size: 1.5rem; /* Adjust heading size for mobile */
+      }
+    
+      .img-preview {
+        width: 80px; /* Smaller image size for mobile */
+      }
+    
+      .options button {
+        font-size: 12px; /* Smaller button text */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .read-only-container h2 {
+        font-size: 1.2rem; /* Further reduce heading size */
+      }
+    
+      .img-preview {
+        width: 60px; /* Further reduce image size */
+      }
+    
+      .options button {
+        font-size: 10px; /* Further reduce button text */
+      }
+    }
+    
+    
+  </style>
+</head>
+<body>
+
+  
+
+  <div class="form-container" id="form">
+    <header class="nss-header">
+      <img src="https://firebasestorage.googleapis.com/v0/b/nssv-6458a.appspot.com/o/logos%2Fimages.png?alt=media&token=0d13bca0-66c3-4822-a64d-52d88428bf68" alt="Left Logo" class="logo">
+      <div class="heading">
+        <h3>Keshav Memorial Institute of Technology</h3>
+        <h4>PROFORMA FOR ENROLMENT OF N.S.S. VOLUNTEERS</h4>
+        <p>Academic Year 2024 - 2025</p>
+      </div>
+      <img src="https://firebasestorage.googleapis.com/v0/b/nssv-6458a.appspot.com/o/logos%2Fmaxresdefault.jpg?alt=media&token=bfd51918-f60f-412a-8d41-a233d0da09be" alt="Right Logo" class="logo">
+    </header>
+  
+    <form id="application-form">
+      <label for="name">1. Name of the Student (Full Name in CAPITALS):</label>
+      <input type="text" id="name" name="name" placeholder="" required><br><br>
+  
+      <label for="sex">2. Gender:</label>
+      <select id="sex" name="sex" required>
+        <option value="" disabled selected>Select</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="others">Others</option>
+      </select><br><br>
+  
+      <label for="father-name">3. Father's Name (Full Name in CAPITALS):</label>
+      <input type="text" id="father-name" name="father-name" placeholder="" required><br><br>
+
+      <label for="community">4. Mother's Name (Full Name in CAPITALS):</label>
+      <input type="text" id="community" community="community" placeholder="" required><br><br>
+  
+      <label for="address">5. Permanent Address:</label>
+      <textarea id="address" name="address" placeholder="" required></textarea><br><br>
+  
+      <label for="dob">6. Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required><br><br>
+
+      <label for="blood-group">7. blood-group:</label>
+      <select id="blood-group" name="blood-group" required>
+        <option value="" disabled selected>Select</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="Others">Don't Know</option>
+      </select><br><br>
+  
+      <label for="donate-blood">8. Willing to Donate Blood:</label>
+      <select id="donate-blood" name="donate-blood" required>
+        <option value="" disabled selected>Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br><br>
+  
+      <label for="contact-mobile">9. Contact Number (Mobile):</label>
+<input type="tel" id="contact-mobile" name="contact-mobile" placeholder="Enter 10-digit number" maxlength="10" pattern="[0-9]{10}" required>
+<br><br>
+  
+      <label for="email">10. Email ID:</label>
+      <input type="email" id="email" name="email" placeholder="" required><br><br>
+  
+      <label for="course-year">11. JNTU Roll Number: (Eg: 21BD*** in CAPITALS)</label>
+      <input type="text" id="course-year" name="course-year" placeholder="" required><br><br>
+  
+      <label for="nss-volunteer">12. Were you a NSS Volunteer during your earlier courses:</label>
+      <select id="nss-volunteer" name="nss-volunteer" required>
+        <option value="" disabled selected>Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br><br>
+  
+      <label for="ncc-member">13. Are you a member of NCC or Scout & Guides:</label>
+      <select id="ncc-member" name="ncc-member" required>
+        <option value="" disabled selected>Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br><br>
+  
+      <label for="image">Upload Image: (Passport size Photo Only)</label>
+      <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+      <label>
+        Read the Rules and Regulations before Submitting the Form<br>
+        <a href="terms-and-conditions.html" target="_blank">Rules and Regulations</a>.
+    </label>
+    <br><br>
+  
+      <button type="button" id="submit-btn">Submit</button>
+    </form>
+    <div id="loading-spinner" style="display:none;">
+      <p>Please wait while we upload your PDF...</p>
+      <div class="spinner"></div>
+  </div>
+  
+  <style>
+  /* Simple spinner animation */
+  .spinner {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  </style>
+  
+  </div>
+  
+<script>
+  function previewImage(event) {
+    const imagePreview = document.getElementById('image-preview');
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        imagePreview.src = e.target.result;
+        imagePreview.style.display = 'block';
+      }
+      reader.readAsDataURL(file);
+    }
+  }
+</script>
+
+<div class="read-only-container" id="read-only-view" style="display: none;">
+  <h2>Submitted Application Form</h2>
+  
+  <div class="img-container">
+    <img id="submitted-img" class="img-preview" alt="Submitted Image">
+  </div>
+  
+  <p><strong>1. Name of the Student:</strong> <span id="submitted-name"></span></p>
+  <p><strong>2. Gender:</strong> <span id="submitted-sex"></span></p>
+  <p><strong>3. Father's Name:</strong> <span id="submitted-father-name"></span></p>
+  <p><strong>4. Mother's Name:</strong> <span id="submitted-community"></span></p>
+  <p><strong>5. Permanent Address:</strong> <span id="submitted-address"></span></p>
+  <p><strong>6. Date of Birth:</strong> <span id="submitted-dob"></span></p>
+  <p><strong>7. Blood Group:</strong> <span id="submitted-blood-group"></span></p>
+  <p><strong>8. Willing to Donate Blood:</strong> <span id="submitted-donate-blood"></span></p>
+  <p><strong>9. Contact Number (Mobile):</strong> <span id="submitted-contact-mobile"></span></p>
+  <p><strong>10. Email ID:</strong> <span id="submitted-email"></span></p>
+  <p><strong>11. JNTU Roll Number:</strong> <span id="submitted-course-year"></span></p>
+  <p><strong>12. NSS Volunteer:</strong> <span id="submitted-nss-volunteer"></span></p>
+  <p><strong>13. NCC Member:</strong> <span id="submitted-ncc-member"></span></p>
+
+  <div class="options">
+    <button id="edit-btn">Edit</button>
+    <button id="final-submit-btn">Submit as PDF</button>
+  </div>
+</div>
+
+
+
+
+<!-- Include Firebase SDK via CDN -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+  // Initialize Firebase
+  const firebaseConfig = {
+  apiKey: "AIzaSyA3EoL7KzFhJusQrwSafMzacxGekAr1PO0",
+  authDomain: "volunteer-form-d2f40.firebaseapp.com",
+  databaseURL: "https://volunteer-form-d2f40-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "volunteer-form-d2f40",
+  storageBucket: "volunteer-form-d2f40.appspot.com",
+  messagingSenderId: "383168587222",
+  appId: "1:383168587222:web:a1f4fad2a5a14c8c2b7077",
+  measurementId: "G-YNBX5SG4XN"
+};
+  
+  firebase.initializeApp(firebaseConfig);
+  
+  const firestore = firebase.firestore();
+  const storage = firebase.storage();
+  
+  const form = document.getElementById('application-form');
+const readOnlyView = document.getElementById('read-only-view');
+const imgInput = document.getElementById('image');
+const submitBtn = document.getElementById('submit-btn');
+const editBtn = document.getElementById('edit-btn');
+const finalSubmitBtn = document.getElementById('final-submit-btn');
+const nssHeader=document.getElementById("form")
+
+// Preview form data in read-only mode
+submitBtn.addEventListener('click', () => {
+    const name = form.name.value.trim();
+    const sex = form.sex.value.trim();
+    const fatherName = form['father-name'].value.trim();
+    const community = form.community.value.trim();
+    const address = form.address.value.trim();
+    const dob = form.dob.value.trim();
+    const bloodGroup = form['blood-group'].value.trim();
+    const donateBlood = form['donate-blood'].value.trim();
+    const contactMobile = form['contact-mobile'].value.trim();
+    const email = form.email.value.trim();
+    const courseYear = form['course-year'].value.trim();
+    const nssVolunteer = form['nss-volunteer'].value.trim() || "N/A";
+    const nccMember = form['ncc-member'].value.trim();
+
+    const imageFile = imgInput.files[0];
+
+    // Check if all required fields and the image are filled
+    if (name && sex && fatherName && address && dob && community && bloodGroup && donateBlood && contactMobile && email && courseYear && nccMember && imageFile) {
+        // Upload image to Firebase Storage
+        const storageRef = storage.ref('images/' + imageFile.name);
+        storageRef.put(imageFile)
+            .then(snapshot => snapshot.ref.getDownloadURL())
+            .then(downloadURL => {
+                // Populate the read-only view with data
+                document.getElementById('submitted-name').textContent = name;
+                document.getElementById('submitted-sex').textContent = sex;
+                document.getElementById('submitted-father-name').textContent = fatherName;
+                document.getElementById('submitted-community').textContent = community;
+                document.getElementById('submitted-address').textContent = address;
+                document.getElementById('submitted-dob').textContent = dob;
+                document.getElementById('submitted-blood-group').textContent = bloodGroup;
+                document.getElementById('submitted-donate-blood').textContent = donateBlood;
+                document.getElementById('submitted-contact-mobile').textContent = contactMobile;
+                document.getElementById('submitted-email').textContent = email;
+                document.getElementById('submitted-course-year').textContent = courseYear;
+                document.getElementById('submitted-nss-volunteer').textContent = nssVolunteer;
+                document.getElementById('submitted-ncc-member').textContent = nccMember;
+                document.getElementById('submitted-img').src = downloadURL;
+
+                // Toggle views
+                //form.style.display = 'none';
+                nssHeader.style.display='none';
+                readOnlyView.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error uploading image: ', error);
+            });
+    } else {
+        alert('Please fill out all required fields and upload an image.');
+    }
+});
+
+// Edit the form
+editBtn.addEventListener('click', () => {
+    readOnlyView.style.display = 'none';
+    nssHeader.style.display = 'block';
+});
+
+  finalSubmitBtn.addEventListener('click', () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    // Set font for headings
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12); // Reduced font size for headings
+
+    // Add logos to top left and top right
+    const leftLogoUrl = 'https://firebasestorage.googleapis.com/v0/b/nssv-6458a.appspot.com/o/logos%2Fimages.png?alt=media&token=0d13bca0-66c3-4822-a64d-52d88428bf68';  // URL for the left logo
+    const rightLogoUrl = 'https://firebasestorage.googleapis.com/v0/b/nssv-6458a.appspot.com/o/logos%2Fmaxresdefault.jpg?alt=media&token=bfd51918-f60f-412a-8d41-a233d0da09be';  // URL for the right logo
+
+    const logoWidth = 25;  // Reduced width for the logos
+    const logoHeight = 25; // Reduced height for the logos
+
+    // Add left logo (top left corner)
+    const leftLogoX = 10;  // X position for left logo
+    const logoY = 10;      // Y position for both logos (top)
+
+    // Add right logo (top right corner)
+    const rightLogoX = doc.internal.pageSize.getWidth() - logoWidth - 10;  // X position for right logo
+
+    const leftLogoImg = new Image();
+    leftLogoImg.src = leftLogoUrl;
+
+    leftLogoImg.onload = function () {
+        doc.addImage(leftLogoImg, "JPEG", leftLogoX, logoY, logoWidth, logoHeight); // Add left logo
+
+        const rightLogoImg = new Image();
+        rightLogoImg.src = rightLogoUrl;
+
+        rightLogoImg.onload = function () {
+            doc.addImage(rightLogoImg, "JPEG", rightLogoX, logoY, logoWidth, logoHeight); // Add right logo
+
+            // Set the Y position closer to the top of the page
+const headingY = 20; // Move it closer to the top (reduce this value for more top positioning)
+
+// Main heading
+const mainHeading = "Keshav Memorial Institute of Technology";
+const mainHeadingWidth = doc.getTextWidth(mainHeading);
+const centerX = doc.internal.pageSize.getWidth() / 2;
+const mainHeadingX = centerX - (mainHeadingWidth / 2);
+doc.setFont("helvetica", "bold");
+doc.setFontSize(12); // Smaller font size for compact layout
+doc.text(mainHeading, mainHeadingX, headingY); // Position main heading near the top
+
+// Subheading (move higher and slightly to the right if needed)
+const subHeading = "An Autonomous Institution - Accredited by NAAC with 'A' Grade";
+const subHeadingWidth = doc.getTextWidth(subHeading);
+const subHeadingX = centerX - (subHeadingWidth / 2) + 10; // Shift slightly right
+doc.setFontSize(10);
+doc.text(subHeading, subHeadingX, headingY + 6); // Move closer to the main heading
+
+
+
+            // Continue generating the rest of the PDF content
+            generatePDFContent(doc, headingY + 20);
+        };
+    };
+    
+});
+
+function generatePDFContent(doc, startY) {
+    // Second main heading below first heading, centered
+    doc.setFontSize(12); // Set font size for this heading
+    const thirdHeading = "ENROLLMENT FORM FOR NSS KMIT VOLUNTEER";
+    const thirdHeadingWidth = doc.getTextWidth(thirdHeading);
+    const thirdHeadingX = (doc.internal.pageSize.getWidth() - thirdHeadingWidth) / 2;
+    doc.text(thirdHeading, thirdHeadingX, startY);
+
+    // Adjust Y position to move the photo higher (closer to the top)
+// Adjust X position to move the photo further to the right
+const photoY = startY + 10; // Move the photo higher (decrease value to move it up)
+const photoX = 155;         // Move the photo further to the right (increase value to shift right)
+const photoHeight = 30;     // Height of the photo box
+const photoWidth = 30;      // Width of the photo box
+
+// Draw the photo box at the adjusted position
+doc.rect(photoX, photoY, photoWidth, photoHeight); // Fixed box for the image
+
+const imageUrl = document.getElementById('submitted-img').src;
+if (imageUrl) {
+    const img = new Image();
+    img.src = imageUrl;
+    img.onload = function () {
+        doc.addImage(img, "JPEG", photoX, photoY, photoWidth, photoHeight); // Add photo to the right and slightly higher
+        addFormFields(doc, photoY);
+    };
+} else {
+    addFormFields(doc, photoY);
+}
+
+}
+
+// Remaining code unchanged...
+
+// Assume enrollmentNumber is set to a value later in the code
+let enrollmentNumber = ""; // Example enrollment number, you can set this based on your logic
+
+function addFormFields(doc, photoTopY) {
+    // Define form fields and their answers
+    const fields = [
+    { question: "Enrollment Number", answer: enrollmentNumber }, // Set the enrollment number directly
+    { question: "1. Full Name of the Volunteer", answer: form.name.value },
+    { question: "2. Gender (Male/Female/Other)", answer: form['sex'].value }, // New Field
+    { question: "3. Father's Name", answer: form['father-name'].value },
+    { question: "4. Mother's Name", answer: form.community.value },
+    { question: "5. Complete Residential Address", answer: form.address.value },
+    { question: "6. Date of Birth", answer: form.dob.value },
+    { question: "7. Blood Group", answer: form['blood-group'].value },
+    { question: "8. Willing to donate blood?", answer: form['donate-blood'].value }, // New Field
+    { question: "9. Contact Phone Number", answer: form['contact-mobile'].value },
+    { question: "10. Email Address", answer: form['email'].value }, // New Field
+    { question: "11. JNTU Roll Number:", answer: form['course-year'].value },
+    { question: "12. Past NSS Volunteer", answer: form['nss-volunteer'].value },
+    { question: "13. Member of NCC", answer: form['ncc-member'].value },
+];
+
+
+
+    
+    let yPosition = photoTopY; // Align content with the top of the photo
+    const questionX = 10;      // X position for the questions
+    const colonX = 80;         // X position for the colon centered between question and answer
+    const answerX = 100;       // X position for the answer (right aligned)
+    
+    // Set font for content
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+
+    // Add each question and answer next to the photo
+    fields.forEach(field => {
+        doc.setFont("helvetica", "bold");
+        doc.text(field.question, questionX, yPosition); // Left-align question
+        doc.text(":", colonX, yPosition);              // Colon between question and answer
+        doc.setFont("helvetica", "normal");
+        doc.text(field.answer, answerX, yPosition);    // Right-align answer
+        yPosition += 10;                               // Move to next line
+    });
+
+    // Adjusted yPosition to move the declaration higher
+yPosition -= 10; // Move declaration up by 10 units
+yPosition += 20; // Add space before the declaration
+doc.setFont("helvetica", "bold");
+doc.text("DECLARATION", (doc.internal.pageSize.getWidth() - doc.getTextWidth("DECLARATION")) / 2, yPosition);
+
+yPosition += 10;
+doc.setFont("helvetica", "normal");
+
+const declaration = 
+    "I hereby declare that I will adhere to the rules and regulations of the National Service Scheme (NSS). I pledge to serve with dedication, uphold the objectives of the NSS, and contribute to the welfare of the nation to the best of my ability.";
+
+// Set the maximum width for the text (adjust this value according to your PDF page size)
+const maxWidth = doc.internal.pageSize.getWidth() - 20; // Leaves 10 units of padding on each side
+
+// Use splitTextToSize to wrap the text within the specified width
+const wrappedText = doc.splitTextToSize(declaration, maxWidth);
+
+// Loop through each line and print it on the PDF
+wrappedText.forEach((line) => {
+    doc.text(line, 10, yPosition); // 10 units from the left for padding
+    yPosition += 10; // Adjust the vertical position for the next line
+});
+
+
+// Add Date on the left and Signature on the right
+yPosition += 20;
+doc.text(`Date: ${new Date().toLocaleDateString()}`, 10, yPosition);
+
+// Position volunteer's name and signature higher and to the right
+const volunteerSignatureX = 130; // Move signature to the right side
+const volunteerNameY = yPosition - 10; // Name slightly above the signature
+const volunteerSignY = yPosition; // Signature line
+
+doc.setFont("helvetica", "bold"); // Make volunteer's name bold
+doc.text(`Name: ${form.name.value}`, volunteerSignatureX, volunteerNameY);
+doc.setFont("helvetica", "normal"); // Normal for signature label
+doc.text("Signature of the Volunteer", volunteerSignatureX, volunteerSignY);
+
+// Move Signature of the Program Officer a bit left
+yPosition += 30;
+doc.text("Signature of the Programme Officer", 120, yPosition); // Move left
+
+// Signature of Head of the Institution remains on the left
+doc.text("Signature of the President of NSS KMIT", 10, yPosition);
+
+
+    // Now save the PDF locally
+    doc.save("NSS_Application_Form.pdf");
+
+    // Save the PDF to Firebase
+    uploadPDFToFirebase(doc);
+}
+
+// Function to save the PDF and start the upload
+function saveAndUploadPDF(doc) {
+  // Show the loading spinner and ask the user to wait
+  document.getElementById('loading-spinner').style.display = 'block';
+
+  // Now save the PDF locally
+  doc.save("NSS_Application_Form.pdf");
+
+  // Save the PDF to Firebase
+  uploadPDFToFirebase(doc);
+}
+
+// Function to upload the PDF to Firebase
+function uploadPDFToFirebase(doc) {
+  // Convert the PDF to a Blob
+  const pdfBlob = doc.output('blob');
+
+  // Reference to Firebase Storage
+  const storageRef = firebase.storage().ref();
+  
+  // Create a reference for the PDF (give it a unique name with a timestamp)
+  const pdfRef = storageRef.child(`pdfs/NSS_Application_Form_${Date.now()}.pdf`);
+
+  // Upload the Blob to Firebase Storage
+  pdfRef.put(pdfBlob).then((snapshot) => {
+      console.log('PDF uploaded successfully!');
+      return snapshot.ref.getDownloadURL();
+  }).then((downloadURL) => {
+      console.log('PDF available at', downloadURL);
+
+      // Hide the loading spinner
+      document.getElementById('loading-spinner').style.display = 'none';
+
+      alert("Volunteer Form Successfully Uploaded! Fill in the Volunteer Application form to join NSS KMIT WhatsApp Group");
+
+      // Redirect the user to the application page after successful submission
+      window.location.href = "https://nsskmit.netlify.app/form";  // Replace 'application_page.html' with your target page
+  }).catch((error) => {
+      console.error("Error uploading PDF:", error);
+
+      // Hide the loading spinner even if there's an error
+      document.getElementById('loading-spinner').style.display = 'none';
+
+      alert("Error uploading PDF, please try again.");
+  });
+}
+
+
+
+</script>
+</body>
+</html>
